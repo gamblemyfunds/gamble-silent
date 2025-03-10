@@ -38,8 +38,8 @@ getgenv().Aiming = {
     Enabled = true,
 
     ShowFOV = true,
-    FOV = 20,
-    FOVSides = 13,
+    FOV = 30,
+    FOVSides = 12,
     FOVColour = Color3fromRGB(231, 84, 128),
 
     VisibleCheck = true,
@@ -427,3 +427,12 @@ function Aiming.GetClosestPlayerToCursor()
     Aiming.Selected = ClosestPlayer
     Aiming.SelectedPart = TargetPart
 end
+
+-- // Heartbeat Function
+Heartbeat:Connect(function()
+    Aiming.UpdateFOV()
+    Aiming.GetClosestPlayerToCursor()
+end)
+
+-- //
+return Aiming
